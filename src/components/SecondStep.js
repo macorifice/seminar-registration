@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Checkbox from '@material-ui/core/Checkbox';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Grow from '@material-ui/core/Grow';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,25 +43,16 @@ const useStyles = makeStyles((theme) => ({
 
 function SecondStep() {
   const classes = useStyles();
-  const [checkedA, setCheckedA] = useState(false);
-  const [checkedB, setCheckedB] = useState(false);
-  const [checkedC, setCheckedC] = useState(false);
-  const [checkedD, setCheckedD] = useState(false);
+
+  const [valueFirst, setValueFirst] = useState('');
+  const [valueSecond, setValueSecond] = useState('');
 
   const handleChangeFirst = (event) => {
-    if (event.target.name === 'yes') {
-      setCheckedA(!checkedA);
-    } else {
-      setCheckedB(!checkedB);
-    }
+    setValueFirst(event.target.value);
   };
 
   const handleChangeSecond = (event) => {
-    if (event.target.name === 'yes') {
-      setCheckedC(!checkedC);
-    } else {
-      setCheckedD(!checkedD);
-    }
+    setValueSecond(event.target.value);
   };
 
   return (
@@ -72,46 +64,38 @@ function SecondStep() {
             <Grid container spacing={3}>
               <Grid item xs={12}>
                 <Paper className={classes.paper}>
-                  <Typography className={classes.title} gutterBottom>
-                    Would you like your company name on your badges ?
-                  </Typography>
-                </Paper>
-                <FormGroup className={classes.formControl}>
-                  <Grid item xs={12}>
-                    <Paper className={classes.paper}>
+                  <FormControl component="fieldset">
+                    <FormLabel component="legend">
+                      Would you like your company name on your badges ?
+                    </FormLabel>
+                    <RadioGroup
+                      aria-label="first"
+                      name="first"
+                      value={valueFirst}
+                      onChange={handleChangeFirst}
+                    >
                       <FormControlLabel
-                        disabled={checkedB}
-                        control={(
-                          <Checkbox
-                            checked={checkedA}
-                            onChange={handleChangeFirst}
-                            name="yes"
-                          />
-                        )}
+                        value="yes"
+                        control={<Radio />}
                         label="Yes"
                       />
-                    </Paper>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Paper className={classes.paper}>
                       <FormControlLabel
-                        disabled={checkedA}
-                        control={(
-                          <Checkbox
-                            checked={checkedB}
-                            onChange={handleChangeFirst}
-                            name="no"
-                          />
-                        )}
+                        value="no"
+                        control={<Radio />}
                         label="No"
                       />
-                    </Paper>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Paper className={classes.paper}>
-                      {checkedA && (
+                    </RadioGroup>
+                  </FormControl>
+                </Paper>
+                <Grid item xs={12}>
+                  <Paper className={classes.paper}>
+                    {valueFirst === 'yes' && (
                       <form noValidate autoComplete="off">
-                        <Grow style={{ transformOrigin: '0 0 0' }} in timeout="auto">
+                        <Grow
+                          style={{ transformOrigin: '0 0 0' }}
+                          in
+                          timeout="auto"
+                        >
                           <TextField
                             size="small"
                             placeholder="Company name"
@@ -120,51 +104,36 @@ function SecondStep() {
                           />
                         </Grow>
                       </form>
-                      )}
-                    </Paper>
-                  </Grid>
-                </FormGroup>
+                    )}
+                  </Paper>
+                </Grid>
               </Grid>
             </Grid>
-
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <Typography className={classes.title} gutterBottom>
-                  Will anyone in your group require special accommodations ?
-                </Typography>
-              </Paper>
-              <FormGroup className={classes.formControl}>
-                <Grid item xs={12}>
-                  <Paper className={classes.paper}>
+                <FormControl component="fieldset">
+                  <FormLabel component="legend">
+                    Will anyone in your group require special accommodations ?
+                  </FormLabel>
+                  <RadioGroup
+                    aria-label="second"
+                    name="second"
+                    value={valueSecond}
+                    onChange={handleChangeSecond}
+                  >
                     <FormControlLabel
-                      disabled={checkedD}
-                      control={(
-                        <Checkbox
-                          checked={checkedC}
-                          onChange={handleChangeSecond}
-                          name="yes"
-                        />
-                      )}
+                      value="yes"
+                      control={<Radio />}
                       label="Yes"
                     />
-                  </Paper>
-                </Grid>
-                <Grid item xs={12}>
-                  <Paper className={classes.paper}>
                     <FormControlLabel
-                      disabled={checkedC}
-                      control={(
-                        <Checkbox
-                          checked={checkedD}
-                          onChange={handleChangeSecond}
-                          name="no"
-                        />
-                      )}
+                      value="no"
+                      control={<Radio />}
                       label="No"
                     />
-                  </Paper>
-                </Grid>
-              </FormGroup>
+                  </RadioGroup>
+                </FormControl>
+              </Paper>
             </Grid>
           </CardContent>
         </Card>
