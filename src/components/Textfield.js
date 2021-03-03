@@ -18,7 +18,12 @@ export default function BasicTextFields(props) {
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
-      <TextField placeholder={placeholder} id="attendee-field" variant="outlined" />
+      <TextField
+        size="small"
+        placeholder={placeholder}
+        id="attendee-field"
+        variant="outlined"
+      />
     </form>
   );
 }

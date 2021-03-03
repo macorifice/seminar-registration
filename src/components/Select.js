@@ -20,8 +20,8 @@ export default function SimpleSelect(props) {
   const { attendee, setAttendee } = props;
 
   return (
-    <div>
-      <FormControl variant="outlined" className={classes.formControl}>
+    <>
+      <FormControl size="small" variant="outlined" className={classes.formControl}>
         <Select
           labelId="select-attendee-label"
           id="select-attendee"
@@ -38,16 +38,16 @@ export default function SimpleSelect(props) {
           <MenuItem value={5}>5</MenuItem>
         </Select>
       </FormControl>
-    </div>
+    </>
   );
 }
 
 SimpleSelect.propTypes = {
-  attendee: PropTypes.number,
+  attendee: PropTypes.string,
   setAttendee: PropTypes.func,
 };
 
 SimpleSelect.defaultProps = {
-  attendee: 0,
+  attendee: '0',
   setAttendee: () => {},
 };
