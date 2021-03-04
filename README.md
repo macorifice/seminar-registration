@@ -1,12 +1,76 @@
-# Getting Started with Create React App
+[![](https://img.shields.io/badge/React-^17.0.1-blue>)](https://it.reactjs.org/) [![](https://img.shields.io/badge/MaterialUI-^4.11.3-green>)](https://material-ui.com/) [![npm version](https://img.shields.io/badge/npm-6.14.8-red>)]()
+****
+# Seminar registration
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sample app to register a seminar attendee
 
-## Available Scripts
+## Getting Started (Docker)
 
-In the project directory, you can run:
+These instructions will cover usage information and for the docker container 
 
-### `yarn start`
+### Prerequisities
+
+
+In order to run this container you'll need docker installed.
+
+* [Windows](https://docs.docker.com/windows/started)
+* [OS X](https://docs.docker.com/mac/started/)
+* [Linux](https://docs.docker.com/linux/started/)
+
+If you want, you can use docker-compose also.
+
+* [Docker Compose](https://docs.docker.com/compose/)
+
+## Usage
+
+#### List of the different scripts available in this project
+
+***
+#### Development environment
+#
+With `docker`
+
+```shell
+npm run docker:dev 
+```
+
+With `docker-compose` 
+
+```shell
+npm run docker-compose:dev
+```
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+***
+#### Production environment
+#
+With `docker`
+
+```shell
+npm run docker:prod 
+```
+
+With `docker-compose` 
+
+```shell
+npm run docker-compose:prod
+```
+Open [http://localhost:1337](http://localhost:1337) to view it in the browser.
+
+****
+## Getting Started
+
+These instructions will cover usage information `without` docker
+
+## Usage
+
+#### List of the different scripts available in this project
+***
+#### Development environment
+#
+```shell
+npm run start
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -14,12 +78,21 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
+```shell
+npm run test
+```
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+```shell
+npm run lint
+```
+To lint files with the `.js` and `.jsx` extension. The `.` targets files in the current directory and all subdirectories. To include other file extensions, eslint . --ext .js,.jsx or eslint . --ext .js --ext .jsx. The [eslint documentation](https://eslint.org/docs/user-guide/command-line-interface#-ext) covers this option.
+
+```shell
+npm run build
+```
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -29,7 +102,9 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+```shell
+npm run eject
+```
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
@@ -39,32 +114,30 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+***
+#### Production environment
+#
+```shell
+npm run start:prod
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Runs the app in the production mode. The project was built assuming it is hosted at /.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
 
-### Code Splitting
+****
+## Optimization
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+These instructions will cover usage information and for the optimization
+## Usage
+#### List of the different scripts available in this project
 
-### Analyzing the Bundle Size
+```shell
+npm run build:webpack
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```shell
+npm run start:webpack
+```
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Open [http://localhost:9000](http://localhost:9000) to view it in the browser.
